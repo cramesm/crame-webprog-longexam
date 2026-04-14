@@ -1,0 +1,78 @@
+import { NavLink } from 'react-router-dom';
+import logo from '../assets/img/nubdexchange_logo.png';
+
+const links = [
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Products', to: '/products' },
+];
+
+/* ============================================================
+   ENHANCEMENT 4 — Overall Visual Design Improvement
+   NavBar uses NU Blue background with white/gold accent text.
+   Active links use gold background; hover states transition
+   smoothly with the NU color palette.
+   ============================================================ */
+const navLinkClassName = ({ isActive }) =>
+  [
+    'rounded-full border-2 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition-all duration-200',
+    isActive
+      ? 'border-nu-gold bg-nu-gold text-nu-blue'
+      : 'border-transparent text-white/70 hover:border-nu-gold hover:bg-nu-gold/10 hover:text-white',
+  ].join(' ');
+
+const NavBar = () => {
+  return (
+    <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-nu-gold bg-nu-blue/95 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <NavLink to="/" className="flex items-center gap-3">
+          <img src={logo} alt="BulldogEx" className="h-9 w-9 rounded-full border-2 border-nu-gold bg-white object-contain" />
+          <div className="space-y-0.5">
+            <p className="text-xl font-bold text-white">BulldogEx Shop</p>
+          </div>
+        </NavLink>
+
+        <nav className="hidden items-center gap-2 md:flex">
+          {links.map((link) => (
+            <NavLink key={link.to} to={link.to} end={link.to === '/'} className={navLinkClassName}>
+              {link.label}
+            </NavLink>
+          ))}
+
+          {/* ============================================================
+              ENHANCEMENT 3 — Accessible Sign In & Sign Up Navigation
+              ============================================================ */}
+          <span className="mx-1 h-5 w-px bg-white/30" aria-hidden="true" />
+          <NavLink
+            to="/auth/signin"
+            className={({ isActive }) =>
+              [
+                'rounded-full border-2 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition-all duration-200',
+                isActive
+                  ? 'border-nu-gold bg-nu-gold text-nu-blue'
+                  : 'border-transparent text-white/70 hover:border-nu-gold hover:bg-nu-gold/10 hover:text-white',
+              ].join(' ')
+            }
+          >
+            Sign In
+          </NavLink>
+          <NavLink
+            to="/auth/signup"
+            className={({ isActive }) =>
+              [
+                'rounded-full border-2 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition-all duration-200',
+                isActive
+                  ? 'border-nu-gold bg-nu-gold text-nu-blue'
+                  : 'border-nu-gold bg-nu-gold text-nu-blue hover:bg-nu-gold-dark',
+              ].join(' ')
+            }
+          >
+            Sign Up
+          </NavLink>
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default NavBar;

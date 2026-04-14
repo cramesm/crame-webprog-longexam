@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* ============================================================
+   ENHANCEMENT 5 — Custom Font Integration
+   Applying "Plus Jakarta Sans" globally via font-family.
+   ============================================================ */
+
+/* ============================================================
+   ENHANCEMENT 4 — Overall Visual Design Improvement
+   NU Bulldogs color palette (Gold, Blue, White) defined as
+   custom Tailwind theme tokens so they can be used as utility
+   classes like bg-nu-blue, text-nu-gold, etc.
+   ============================================================ */
+
+@theme {
+  --color-nu-blue: #1B3A5F;
+  --color-nu-blue-dark: #122843;
+  --color-nu-blue-light: #2A5490;
+  --color-nu-gold: #D4A843;
+  --color-nu-gold-dark: #B8922E;
+  --color-nu-gold-light: #F5ECD7;
+  --color-nu-cream: #FDF9F0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    @apply bg-nu-cream text-nu-blue antialiased;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  ::selection {
+    @apply bg-nu-blue text-white;
+  }
+}
