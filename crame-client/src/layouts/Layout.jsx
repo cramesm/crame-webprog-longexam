@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 
 /* ============================================================
    ENHANCEMENT 4 — Overall Visual Design Improvement
-   Layout wrapper uses NU cream background and navy text.
    ============================================================ */
 
 const Layout = () => {

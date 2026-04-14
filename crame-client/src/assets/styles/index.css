@@ -7,9 +7,7 @@
 
 /* ============================================================
    ENHANCEMENT 4 — Overall Visual Design Improvement
-   NU Bulldogs color palette (Gold, Blue, White) defined as
-   custom Tailwind theme tokens so they can be used as utility
-   classes like bg-nu-blue, text-nu-gold, etc.
+   NU Bulldogs color palette
    ============================================================ */
 
 @theme {
@@ -20,6 +18,25 @@
   --color-nu-gold-dark: #B8922E;
   --color-nu-gold-light: #F5ECD7;
   --color-nu-cream: #FDF9F0;
+
+  --animate-fade-up: fade-up 0.5s ease-out both;
+  --animate-fade-in: fade-in 0.4s ease-out both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @layer base {
@@ -29,7 +46,14 @@
 
   body {
     font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
     @apply bg-nu-cream text-nu-blue antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
 
   #root {
@@ -37,6 +61,29 @@
   }
 
   ::selection {
-    @apply bg-nu-blue text-white;
+    @apply bg-nu-gold text-nu-blue;
+  }
+}
+
+/* Gold accent bar utility */
+@layer utilities {
+  .gold-bar::before {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #D4A843, #B8922E);
+    margin-bottom: 0.75rem;
+  }
+
+  .gold-bar-center::before {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #D4A843, #B8922E);
+    margin: 0 auto 0.75rem;
   }
 }

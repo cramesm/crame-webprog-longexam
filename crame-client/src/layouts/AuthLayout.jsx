@@ -4,14 +4,10 @@ import banner from '../assets/img/nu_bulldogex_banner.jpg';
 
 /* ============================================================
    ENHANCEMENT 3 — Accessible Sign In & Sign Up Navigation
-   AuthLayout wraps sign-in and sign-up routes.
    ============================================================ */
 
 /* ============================================================
    ENHANCEMENT 4 — Overall Visual Design Improvement
-   Auth layout uses NU Blue left panel with the campus banner
-   image overlaid, logo branding, and a white form panel on
-   the right. Replaces the geometric X placeholder.
    ============================================================ */
 
 const AuthLayout = () => {

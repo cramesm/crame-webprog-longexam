@@ -7,27 +7,29 @@ import Button from '../../components/Button';
 
 /* ============================================================
    ENHANCEMENT 4 — Overall Visual Design Improvement
-   Auth form uses NU Blue, Gold, White palette with refined
-   focus states and consistent styling.
    ============================================================ */
 
 /* ============================================================
    ENHANCEMENT 5 — Custom Font Integration
-   "Plus Jakarta Sans" inherited from global CSS.
    ============================================================ */
 
 const inputClasses =
-  'mt-2 w-full rounded-xl border border-nu-blue/20 bg-nu-cream px-4 py-3 text-sm text-nu-blue outline-none transition-all duration-200 placeholder:text-nu-blue/40 focus:border-nu-gold focus:bg-white focus:ring-1 focus:ring-nu-gold';
+  'mt-2 w-full rounded-xl border border-nu-blue/15 bg-nu-cream px-4 py-3 text-sm text-nu-blue outline-none transition-all duration-200 placeholder:text-nu-blue/35 focus:border-nu-gold focus:bg-white focus:ring-2 focus:ring-nu-gold/30 focus:shadow-sm';
 
 const actionButtonClassName = 'w-full rounded-xl py-3 text-[11px] tracking-[0.2em]';
 
 const SignUpPage = () => {
   return (
     <>
-      <h1 className="text-3xl font-bold tracking-tight text-nu-blue sm:text-4xl">Sign Up</h1>
-      <p className="mt-3 text-sm leading-6 text-nu-blue/60">
-        Create a store account for faster checkout, order updates, and pickup details.
-      </p>
+      <div className="animate-fade-up">
+        <p className="gold-bar text-[11px] font-semibold uppercase tracking-[0.28em] text-nu-gold-dark">
+          Get Started
+        </p>
+        <h1 className="mt-1 text-3xl font-extrabold tracking-tight text-nu-blue sm:text-4xl">Sign Up</h1>
+        <p className="mt-3 text-sm font-light leading-6 text-nu-blue/60">
+          Create a store account for faster checkout, order updates, and pickup details.
+        </p>
+      </div>
 
       <form className="mt-8 space-y-5">
         <div className="grid gap-5 sm:grid-cols-2">
@@ -81,7 +83,7 @@ const SignUpPage = () => {
             autoComplete="new-password"
             className={inputClasses}
           />
-          <p className="mt-2 text-xs leading-5 text-nu-blue/50">
+          <p className="mt-2 text-xs font-light leading-5 text-nu-blue/45">
             Use a secure password with letters, numbers, and symbols.
           </p>
         </div>
@@ -100,9 +102,9 @@ const SignUpPage = () => {
         </div>
       </form>
 
-      <div className="mt-8 border-t border-nu-blue/15 pt-6 text-sm text-nu-blue/60">
+      <div className="mt-8 border-t border-nu-blue/10 pt-6 text-sm text-nu-blue/60">
         Already have an account?{' '}
-        <Link to="/auth/signin" className="font-semibold text-nu-blue transition hover:text-nu-gold-dark">
+        <Link to="/auth/signin" className="font-bold text-nu-gold-dark transition hover:text-nu-gold">
           Log In
         </Link>
       </div>

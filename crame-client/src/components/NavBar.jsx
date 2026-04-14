@@ -9,48 +9,45 @@ const links = [
 
 /* ============================================================
    ENHANCEMENT 4 — Overall Visual Design Improvement
-   NavBar uses NU Blue background with white/gold accent text.
-   Active links use gold background; hover states transition
-   smoothly with the NU color palette.
    ============================================================ */
 const navLinkClassName = ({ isActive }) =>
   [
     'rounded-full border-2 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition-all duration-200',
     isActive
-      ? 'border-nu-gold bg-nu-gold text-nu-blue'
-      : 'border-transparent text-white/70 hover:border-nu-gold hover:bg-nu-gold/10 hover:text-white',
+      ? 'border-nu-gold bg-gradient-to-r from-nu-gold to-nu-gold-dark text-nu-blue shadow-sm'
+      : 'border-transparent text-white/70 hover:border-white/30 hover:text-white',
   ].join(' ');
 
+/* ============================================================
+   ENHANCEMENT 3 — Accessible Sign In & Sign Up Navigation
+   ============================================================ */
 const NavBar = () => {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-nu-gold bg-nu-blue/95 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-nu-gold/80 bg-gradient-to-r from-nu-blue-dark via-nu-blue to-nu-blue-dark backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <NavLink to="/" className="flex items-center gap-3">
-          <img src={logo} alt="BulldogEx" className="h-9 w-9 rounded-full border-2 border-nu-gold bg-white object-contain" />
+        <NavLink to="/" className="flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02]">
+          <img src={logo} alt="BulldogEx" className="h-9 w-9 rounded-full border-2 border-nu-gold bg-white object-contain shadow-md" />
           <div className="space-y-0.5">
-            <p className="text-xl font-bold text-white">BulldogEx Shop</p>
+            <p className="text-xl font-extrabold tracking-tight text-white">BulldogEx Shop</p>
           </div>
         </NavLink>
 
         <nav className="hidden items-center gap-2 md:flex">
           {links.map((link) => (
-            <NavLink key={link.to} to={link.to} end={link.to === '/'} className={navLinkClassName}>
+            <NavLink key={link.to} to={link.to} end={link.to === '/home'} className={navLinkClassName}>
               {link.label}
             </NavLink>
           ))}
 
-          {/* ============================================================
-              ENHANCEMENT 3 — Accessible Sign In & Sign Up Navigation
-              ============================================================ */}
-          <span className="mx-1 h-5 w-px bg-white/30" aria-hidden="true" />
+          <span className="mx-1 h-5 w-px bg-white/20" aria-hidden="true" />
           <NavLink
             to="/auth/signin"
             className={({ isActive }) =>
               [
                 'rounded-full border-2 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition-all duration-200',
                 isActive
-                  ? 'border-nu-gold bg-nu-gold text-nu-blue'
-                  : 'border-transparent text-white/70 hover:border-nu-gold hover:bg-nu-gold/10 hover:text-white',
+                  ? 'border-nu-gold bg-gradient-to-r from-nu-gold to-nu-gold-dark text-nu-blue shadow-sm'
+                  : 'border-transparent text-white/70 hover:border-white/30 hover:text-white',
               ].join(' ')
             }
           >
@@ -62,8 +59,8 @@ const NavBar = () => {
               [
                 'rounded-full border-2 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition-all duration-200',
                 isActive
-                  ? 'border-nu-gold bg-nu-gold text-nu-blue'
-                  : 'border-nu-gold bg-nu-gold text-nu-blue hover:bg-nu-gold-dark',
+                  ? 'border-nu-gold bg-gradient-to-r from-nu-gold to-nu-gold-dark text-nu-blue shadow-sm'
+                  : 'border-nu-gold bg-gradient-to-r from-nu-gold to-nu-gold-dark text-nu-blue hover:brightness-110 hover:scale-[1.03] shadow-sm',
               ].join(' ')
             }
           >

@@ -2,8 +2,6 @@ import ProductCard from './ProductCard';
 
 /* ============================================================
    ENHANCEMENT 1 — Original Product Catalog
-   ProductList renders the grid of ProductCards from the updated
-   product catalog data source.
    ============================================================ */
 
 const ProductList = ({ products }) => {

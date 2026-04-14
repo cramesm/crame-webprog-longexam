@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 
 /* ============================================================
    ENHANCEMENT 4 — Overall Visual Design Improvement
-   Button variants updated to NU Bulldogs palette:
-   • primary — Gold background, navy text
-   • secondary — White background, navy border & text
+   Button variants updated to NU Bulldogs palette with scale
+   hover effect and gradient primary button for premium feel.
    ============================================================ */
 const variantClasses = {
-  primary: 'bg-nu-gold text-nu-blue hover:bg-nu-gold-dark',
-  secondary: 'bg-white text-nu-blue hover:bg-nu-gold-light',
+  primary:
+    'border-nu-gold bg-gradient-to-r from-nu-gold to-nu-gold-dark text-nu-blue hover:brightness-110 hover:scale-[1.03]',
+  secondary:
+    'border-nu-blue/25 bg-white text-nu-blue hover:bg-nu-gold-light hover:border-nu-gold hover:scale-[1.03]',
 };
 
 const Button = ({
@@ -19,7 +20,7 @@ const Button = ({
   className = '',
 }) => {
   const classes = [
-    'inline-flex items-center justify-center rounded-full border-2 border-nu-blue px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.24em] transition-all duration-200',
+    'inline-flex items-center justify-center rounded-full border-2 px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.24em] shadow-sm transition-all duration-200 active:scale-[0.97]',
     variantClasses[variant] ?? variantClasses.secondary,
     className,
   ]
